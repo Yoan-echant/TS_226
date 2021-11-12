@@ -1,5 +1,6 @@
 function [c,s_f]=cc_encode(u,trellis,s_i,closed)
 
+
 numInputSymbols=trellis.numInputSymbols;
 numOutputSymbols=trellis.numOutputSymbols;
 numStates=trellis.numStates;
@@ -18,14 +19,22 @@ else
 end
 c=zeros(longc,1);
 
-compteur=0;
+compteur=1;
 
-while (compteur<longc/ns)
-    disp(c(compteur*ns+ns))
-    c(compteur*ns+1:compteur*ns+ns)=outputs(s_i(:),u(compteur*nb+1:compteur*nb+nb));
-    s_i=nextStates(s_i,u(compteur*nb+1:compteur*nb+nb));
+while (compteur<=longc/ns)
+    
+    val=outputs(s_i+1,u(compteur)+1);
+    
+    for i=1:ns
+        c((compteur-1)*ns+i)=floor(val/(2^(ns-i)));
+        
+        val=val-c((compteur-1)*ns+i)*2^(ns-i);
+    end
+    
+    s_i=nextStates(s_i+1,u(compteur)+1);
     compteur=compteur+1;
 end
 
 s_f=s_i;
+
 end
