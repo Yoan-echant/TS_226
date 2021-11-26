@@ -11,11 +11,11 @@ K=length(u);
 L=log2(numStates)+1;
 nb=log2(numInputSymbols);
 
-u=zeros(K,1);
+
 len=numStates*(L+1);
 
 
-viterbie_rec(numstates,0,nextStates,outputs,1,len,y)
+[valpath,u]=viterbie_rec(numstates,0,nextStates,outputs,1,len,y);
 
 %{
 metrique=zeros(1,numStates*(L+1));

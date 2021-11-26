@@ -12,19 +12,19 @@ if compteur==len
 else
     for i=1:numstates
         if (tabstates(i,1)==pos && tabstates(i,2)==pos)
-           if (mulitplie_y(y,len-com,numstates,valstates(tabstates(i),1))< multiplie_y(y,len-com,numstates,valstates(tabstates(i),2)))
+           if (mulitplie_y(y,len-compteur,numstates,valstates(tabstates(i),1))< multiplie_y(y,len-compteur,numstates,valstates(tabstates(i),2)))
                 [metrique(i),tabchem]=viterbie_rec(numstates,compteur+1,tabstates,valstates,tabstates(i),len);
-                metrique(i)=metrique(i)+multiplie_y(y,len-com,numstates,valstates(tabstates(i),1));
+                metrique(i)=metrique(i)+multiplie_y(y,len-commpteur,numstates,valstates(tabstates(i),1));
            else
                 [metrique(i),tabchem]=viterbie_rec(numstates,compteur+1,tabstates,valstates,tabstates(i),len);
-                metrique(i)=metrique(i)+multiplie_y(y,len-com,numstates,valstates(tabstates(i),2));
+                metrique(i)=metrique(i)+multiplie_y(y,len-compteur,numstates,valstates(tabstates(i),2));
            end
         elseif (tabstates(i,1)==pos)
             [metrique(i),tabchem]=viterbie_rec(numstates,compteur+1,tabstates,valstates,tabstates(i),len);
-            metrique(i)=metrique(i)+multiplie_y(y,len-com,numstates,valstates(tabstates(i),1));
+            metrique(i)=metrique(i)+multiplie_y(y,len-compteur,numstates,valstates(tabstates(i),1));
         elseif (tabstates(i,2)==pos)
             [metrique(i),tabchem]=viterbie_rec(numstates,compteur+1,tabstates,valstates,tabstates(i),len);
-            metrique(i)=metrique(i)+multiplie_y(y,len-com,numstates,valstates(tabstates(i),2));
+            metrique(i)=metrique(i)+multiplie_y(y,len-compteur,numstates,valstates(tabstates(i),2));
         else
             metrique(i)=1e8;   
         end
