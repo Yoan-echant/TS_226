@@ -11,10 +11,12 @@ L=log2(numStates)+1;
 nb=log2(numInputSymbols);
 
 
-len=numStates*(L+1);
+len= floor(length(y)/numStates)-1;
 
 
-[valpath,u]=viterbie_rec(numStates,0,nextStates,outputs,1,len,y);
+
+[valpath,u]=viterbie_rec(numStates,1,nextStates,outputs,1,len,y);
+
 
 
 %{
