@@ -3,12 +3,13 @@ clc;
 close all;
 N=10;
 u=randi([0,1],1,N);
+%u=[1 1 0 0];
 trellis=poly2trellis(3,[5,7]);
 s_i=0;
-closed=1; %1 is TRUE
+closed=true;
 [c,s_f]=cc_encode(u,trellis,s_i,closed);
 
-y=c*2-1;
+y=1-c*2;
 
 figure
 plot(y)
