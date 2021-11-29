@@ -5,10 +5,6 @@ function [metrique]= multiplie_y(y,index,numStates,valoutput)
             valoutputbin(k)=floor(valoutput/(2^(ns-k)));
             valoutput=valoutput-valoutputbin(k)*2^(ns-k);
      end
-
-        disp(index)
-        disp(ns*index)
-        disp(length(y))
         for j=1:ns
             metrique = y(ns*(index-1) +j)*valoutputbin(j);
         end

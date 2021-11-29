@@ -11,7 +11,7 @@ closed=1; %1 is TRUE
 y=c*2-1;
 
 figure
-plot(c)
+plot(y)
 title('signal encodé')
 figure
 plot(u)
