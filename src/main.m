@@ -69,7 +69,12 @@ for iSNR = 1:length(EbN0dB)
         %% Emetteur
         tx_tic  = tic;                 % Mesure du débit d'encodage
         u       = randi([0,1],K,1);    % Génération du message aléatoire
-        c       = cc_encode(u);        % Encodage
+
+        trellis=poly2trellis(3,[5,7]); %Définition du trellis
+        s_i = 0;                        %Défintion de l'état initial
+        closed = 1;
+        c       = cc_encode(u,trellis,s_i,closed);                   % Encodage
+
         x       = 1-2*c;               % Modulation QPSK
         T_tx    = T_tx+toc(tx_tic);    % Mesure du débit d'encodage
         debitTX = pqtNbr*K/8/T_tx/1e6;
@@ -81,7 +86,8 @@ for iSNR = 1:length(EbN0dB)
         %% Recepteur
         rx_tic = tic;                  % Mesure du débit de décodage
         Lc      = 2*y/sigmaz2(iSNR);   % Démodulation (retourne des LLRs)
-        u_rec   = double(Lc(1:K) < 0); % Message reçu
+        u_rec   =viterbi_decode(Lc,trellis,s_i,closed);
+%         double(Lc(1:K) < 0); % Message reçu
         
         BE      = sum(u(:) ~= u_rec(:)); % Nombre de bits faux sur cette trame
         bitErr  = bitErr + BE;

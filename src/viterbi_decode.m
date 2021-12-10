@@ -35,7 +35,7 @@ for index=0:L-1
             if (metrique((index+1)*numStates+dest) > metrique(numStates*index+i)+multiplie_y(y,index+1,numStates,cost))
                 metrique((index+1)*numStates+dest) = metrique(numStates*index+i)+multiplie_y(y,index+1,numStates,cost);
                 chem(:,(index+1)*numStates+dest)=[i,j-1];
-                disp(["A l'étape" index+1 "On arrive a" dest "depuis" i "avec" j-1 "et metrique" metrique((index+1)*numStates+dest) "cost" cost])
+                %disp(["A l'étape" index+1 "On arrive a" dest "depuis" i "avec" j-1 "et metrique" metrique((index+1)*numStates+dest) "cost" cost])
             end
         end
     end
@@ -45,8 +45,8 @@ if (closed)
 else
     [metr,state]=min(metrique(numStates*L:numStates*(L+1)));
 end
-disp(metrique)
-disp(chem)
+%disp(metrique)
+%disp(chem)
 
 for i=L:-1:1
     u(i)=chem(2,i*numStates+state);
