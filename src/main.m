@@ -69,7 +69,7 @@ for iSNR = 1:length(EbN0dB)
         %% Emetteur
         tx_tic  = tic;                 % Mesure du débit d'encodage
         u       = randi([0,1],K,1);    % Génération du message aléatoire
-        c       = u;                   % Encodage
+        c       = cc_encode(u);        % Encodage
         x       = 1-2*c;               % Modulation QPSK
         T_tx    = T_tx+toc(tx_tic);    % Mesure du débit d'encodage
         debitTX = pqtNbr*K/8/T_tx/1e6;
