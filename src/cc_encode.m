@@ -8,10 +8,10 @@ nextStates=trellis.nextStates;
 outputs=trellis.outputs;
 
 nb=log2(numOutputSymbols);
-K=length(u);
-ns=log2(numStates);
-L=length(u)+ns;
 ns=log2(numInputSymbols);
+K=length(u);
+%ns=log2(numStates);
+L=length(u)+ns;
 
 if (closed)
     longc=ns*L;
