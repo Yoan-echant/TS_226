@@ -6,7 +6,7 @@ numStates=trellis.numStates;
 nextStates=trellis.nextStates+1;
 outputs=trellis.outputs;
 
-ns=log2(numOutputSymbols);
+ns=log2(numInputSymbols);
 L=round(length(y)/ns);
 
 
