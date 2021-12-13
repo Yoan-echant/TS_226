@@ -14,11 +14,7 @@ nl=log2(numStates);
 
 nb=log2(numOutputSymbols);
 
-
-
 %disp(L)
-
-
 
 u=zeros(1,L);
 metrique=ones(1,numStates*(L+1))*100;
