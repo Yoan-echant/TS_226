@@ -18,7 +18,7 @@ nb=log2(numOutputSymbols);
 
 u=zeros(1,L);
 metrique=ones(1,numStates*(L+1))*100;
-chem=zeros(2,numStates*(L+1));
+chem=zeros(2,numStates*(L+1)+1);
 metrique(1,s_i+1)=0;
 for index=0:L-1
     for i=1:numStates
