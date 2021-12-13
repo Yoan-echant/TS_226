@@ -7,20 +7,15 @@ nextStates=trellis.nextStates+1;
 outputs=trellis.outputs;
 
 ns=log2(numOutputSymbols);
-L=length(y)/ns;
+L=round(length(y)/ns);
+
 
 nb=log2(numInputSymbols);
 
 
-%{
+
 disp(L)
 
-
-[valpath,u]=viterbie_rec(numStates,1,nextStates,outputs,1,L,y,s_i);
-
-disp(valpath)
-
-%}
 
 
 u=zeros(1,L);
@@ -32,8 +27,8 @@ for index=0:L-1
         for j=1:numInputSymbols
             cost=outputs(i,j);
             dest=nextStates(i,j);
-            if (metrique((index+1)*numStates+dest) > metrique(numStates*index+i)+multiplie_y(y,index+1,numStates,cost))
-                metrique((index+1)*numStates+dest) = metrique(numStates*index+i)+multiplie_y(y,index+1,numStates,cost);
+            if (metrique((index+1)*numStates+dest) > metrique(numStates*index+i)+multiplie_y(y,index+1,ns,cost))
+                metrique((index+1)*numStates+dest) = metrique(numStates*index+i)+multiplie_y(y,index+1,ns,cost);
                 chem(:,(index+1)*numStates+dest)=[i,j-1];
                 %disp(["A l'étape" index+1 "On arrive a" dest "depuis" i "avec" j-1 "et metrique" metrique((index+1)*numStates+dest) "cost" cost])
             end

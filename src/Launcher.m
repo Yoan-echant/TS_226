@@ -5,8 +5,8 @@ N=10;
 u=randi([0,1],1,N);
 %u=[1 1 0 0];
 %trellis=poly2trellis(3,[5,7]);
-%trellis = poly2trellis(7,[13,15]);
-trellis = poly2trellis(7,[133 171]); 
+trellis = poly2trellis(4,[13,15]);
+%trellis = poly2trellis(7,[133 171]); 
 s_i=0;
 %commcnv_plotoutputs(trellis.outputs, trellis.numOutputSymbols)
 closed=true;
