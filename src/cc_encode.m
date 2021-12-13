@@ -8,7 +8,9 @@ nextStates=trellis.nextStates;
 outputs=trellis.outputs;
 
 nb=log2(numOutputSymbols);
+ns=log2(numInputSymbols);
 K=length(u);
+
 nl=log2(numStates);
 L=length(u)+nl;
 ns=log2(numInputSymbols);

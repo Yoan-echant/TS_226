@@ -9,7 +9,6 @@ trellis=poly2trellis(2,[2,3]);
 %trellis = poly2trellis(4,[13,15]);
 %trellis = poly2trellis(7,[133 171]); 
 s_i=0;
-%commcnv_plotoutputs(trellis.outputs, trellis.numOutputSymbols)
 closed=false;
 [c,s_f]=cc_encode(u,trellis,s_i,closed);
 

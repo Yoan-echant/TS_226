@@ -6,17 +6,15 @@ numStates=trellis.numStates;
 nextStates=trellis.nextStates+1;
 outputs=trellis.outputs;
 
+nb=log2(numOutputSymbols);
 ns=log2(numInputSymbols);
 L=round(length(y)/ns);
 nl=log2(numStates);
 
+
 nb=log2(numOutputSymbols);
 
-
-
-
-
-
+%disp(L)
 
 u=zeros(1,L);
 metrique=ones(1,numStates*(L+1))*100;
@@ -48,6 +46,7 @@ for i=L:-1:1
     state=chem(1,i*numStates+state);
 end
 if (closed)
+    %disp(nl);
     u2=u(1:L-nl);
 else
     u2=u;
