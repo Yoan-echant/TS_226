@@ -29,8 +29,8 @@ while (compteur<=K)
     val=outputs(s_i+1,u(compteur)+1);
     
     for i=1:ns
-        c((compteur-1)*ns+i)=floor(val/(2^(ns-i)));
-        val=val-c((compteur-1)*ns+i)*2^(ns-i);
+        c((compteur-1)*ns+i)=floor(val/(2^(ns-i+1)));
+        val=val-c((compteur-1)*ns+i)*2^(ns-i+1);
         
     end
     
@@ -48,9 +48,9 @@ while (compteur<=longc/ns)
     val=outputs(s_i+1,1);
     
     for i=1:ns
-        c((compteur-1)*ns+i)=floor(val/(2^(ns-i)));
+        c((compteur-1)*ns+i)=floor(val/(2^(ns-i+1)));
         
-        val=val-c((compteur-1)*ns+i)*2^(ns-i);
+        val=val-c((compteur-1)*ns+i)*2^(ns-i+1);
     end
     
     s_i=nextStates(s_i+1,1);
