@@ -70,7 +70,7 @@ for iSNR = 1:length(EbN0dB)
         tx_tic  = tic;                 % Mesure du débit d'encodage
         u       = randi([0,1],K,1);    % Génération du message aléatoire
 
-        trellis=poly2trellis(5,[2,3]); %Définition du trellis
+        trellis=poly2trellis(3,[5,7]); %Définition du trellis
         s_i = 0;                        %Défintion de l'état initial
         closed = 1;
         c       = cc_encode(u,trellis,s_i,closed);                   % Encodage

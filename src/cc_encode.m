@@ -10,8 +10,10 @@ outputs=trellis.outputs;
 nb=log2(numOutputSymbols);
 ns=log2(numInputSymbols);
 K=length(u);
-%ns=log2(numStates);
-L=length(u)+ns;
+
+nl=log2(numStates);
+L=length(u)+nl;
+ns=log2(numInputSymbols);
 
 if (closed)
     longc=ns*L;
@@ -28,8 +30,8 @@ while (compteur<=K)
     
     for i=1:ns
         c((compteur-1)*ns+i)=floor(val/(2^(ns-i)));
-        
         val=val-c((compteur-1)*ns+i)*2^(ns-i);
+        
     end
     
     s_i=nextStates(s_i+1,u(compteur)+1);
