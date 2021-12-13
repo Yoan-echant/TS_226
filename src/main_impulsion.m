@@ -62,7 +62,7 @@ for i=1:length(EbN0)
     refreshdata(hTEP2);
     refreshdata(hTEP3);
     refreshdata(hTEP4);
-    disp(100*i/length(EbN0))
+    
 end
 
 refreshdata(hTEP1);

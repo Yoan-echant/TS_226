@@ -15,10 +15,10 @@ for l=1:K
         y=ones(1,N);
         y(l)=A-1;
         X=viterbi_decode(y,trellis,s_i,closed);
-        disp(A*100/d1)
+        
     end
     v(l)=A;
-    disp(l*100/K)
+    
 end
 D=[];
 Ad=[];
@@ -27,7 +27,7 @@ for i=1:K
         D=[D, v(i)];
         Ad=[Ad, sum(v(i)==v)];
     end
-    disp(i*100/K)
+    
 end
 
 TEP=sum(Ad.*erfc(sqrt(D*R*EbN0)))/2;
