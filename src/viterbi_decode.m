@@ -8,9 +8,9 @@ outputs=trellis.outputs;
 
 ns=log2(numInputSymbols);
 L=round(length(y)/ns);
+nl=log2(numStates);
 
-
-nb=log2(numInputSymbols);
+nb=log2(numOutputSymbols);
 
 
 
@@ -48,7 +48,8 @@ for i=L:-1:1
     state=chem(1,i*numStates+state);
 end
 if (closed)
-    u2=u(1:L-ns);
+    disp(nl);
+    u2=u(1:L-nl);
 else
     u2=u;
 end
