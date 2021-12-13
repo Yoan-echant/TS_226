@@ -27,4 +27,4 @@ for i=1:k
     end
 end
 
-TEP=sum(Ad.erfc(sqrt(D*R*Eb/No)))/2;
+TEP=sum(Ad.*erfc(sqrt(D*R*Eb/No)))/2;
