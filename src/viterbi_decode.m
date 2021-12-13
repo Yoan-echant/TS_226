@@ -16,7 +16,7 @@ nb=log2(numOutputSymbols);
 
 
 
-disp(L)
+%disp(L)
 
 
 
@@ -50,7 +50,7 @@ for i=L:-1:1
     state=chem(1,i*numStates+state);
 end
 if (closed)
-    disp(nl);
+    %disp(nl);
     u2=u(1:L-nl);
 else
     u2=u;
