@@ -1,5 +1,5 @@
-function [metrique]= multiplie_y(y,index,numStates,valoutput)
-    ns = log2(numStates);
+function [metrique]= multiplie_y(y,index,ns,valoutput)
+    
     valoutputbin= zeros(1,ns);
      for k=1:ns    
             valoutputbin(k)=floor(valoutput/(2^(ns-k)));
