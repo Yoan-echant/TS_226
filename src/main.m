@@ -10,9 +10,9 @@ R = K/N; % Rendement de la communication
 
 M = 2;   % Modulation BPSK <=> 2 symboles
 
-EbN0dB_min  = 0; % Minimum de EbN0
+EbN0dB_min  = -2; % Minimum de EbN0
 EbN0dB_max  = 10; % Maximum de EbN0
-EbN0dB_step = 1;% Pas de EbN0
+EbN0dB_step = 0.5;% Pas de EbN0
 
 nbrErreur  = 100;  % Nombre d'erreurs à observer avant de calculer un BER
 nbrBitMax = 100e6;% Nombre de bits max à simuler
@@ -84,7 +84,8 @@ for iSNR = 1:length(EbN0dB)
         %% Recepteur
         rx_tic = tic;                  % Mesure du débit de décodage
         Lc      = 2*y/sigmaz2(iSNR);   % Démodulation (retourne des LLRs)
-        u_rec   =viterbi_decode(Lc,trellis,s_i,closed);
+        %u_rec = vitdec(Lc,trellis,16,'cont','soft');
+        u_rec   =viterbi_decode(y,trellis,s_i,closed);
 %         double(Lc(1:K) < 0); % Message reçu
         
         BE      = sum(u(:) ~= u_rec(:)); % Nombre de bits faux sur cette trame
